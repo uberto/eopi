@@ -13,7 +13,6 @@ public class SquareRoot {
         while(true) {
 
             double c = (min + max) / 2;
-
        //     System.out.println(c);
 
             if (Math.abs(c * c - number) <= error) {
