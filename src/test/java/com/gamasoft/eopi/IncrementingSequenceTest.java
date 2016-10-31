@@ -49,4 +49,28 @@ public class IncrementingSequenceTest {
 
     }
 
+
+    @Test
+    public void notContinuousSeq() throws Exception {
+
+        List<Integer> seq = new ArrayList(Arrays.asList(1, 2, 5, 1, 3, 4, 2 ));
+
+        int s = IncrementingSequence.findLongestNonContIncrementingSequence(seq);
+
+        Assert.assertEquals(4, s);
+
+    }
+
+
+    @Test
+    public void notContinuousSeq2() throws Exception {
+
+        List<Integer> seq = new ArrayList(Arrays.asList(1, 2, 3, 4, 1, 2, 5 ));
+
+        int s = IncrementingSequence.findLongestNonContIncrementingSequence(seq);
+
+        Assert.assertEquals(5, s);
+
+    }
+
 }
