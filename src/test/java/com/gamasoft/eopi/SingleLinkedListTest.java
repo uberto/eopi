@@ -20,9 +20,17 @@ public class SingleLinkedListTest {
 
 
         Assert.assertEquals("c", l.findMiddle().value);
+    }
 
+    @Test
+    public void findMiddleInLongList(){
 
+        SingleLinkedList<String> l = new SingleLinkedList<>();
+        for(int i=1; i < 1000; i++){
+            l.add(Integer.toString(i));
+        }
 
+        Assert.assertEquals("500", l.findMiddle().value);
     }
 
 }
