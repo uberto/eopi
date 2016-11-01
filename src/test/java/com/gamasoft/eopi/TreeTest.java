@@ -19,7 +19,6 @@ public class TreeTest {
         t.visitDeepFirst(visited::append);
 
         Assert.assertEquals("013425", visited.toString());
-
     }
 
 
@@ -32,7 +31,6 @@ public class TreeTest {
         t.visitBreadthFirst(visited::append);
 
         Assert.assertEquals("012345", visited.toString());
-
     }
 
 
