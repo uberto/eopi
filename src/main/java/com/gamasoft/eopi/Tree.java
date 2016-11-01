@@ -21,6 +21,7 @@ public class Tree<T extends Comparable> {
             return this.value.compareTo(o.value);
         }
     }
+
     Node<T> root;
 
     public void visitDeepFirst(Consumer<T> action){
