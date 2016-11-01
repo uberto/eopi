@@ -31,7 +31,6 @@ public class Tree<T extends Comparable> {
         action.accept(node.value);
         for(Node<T> c: node.children)
             visitDF(c, action);
-
     }
 
     public void visitBreadthFirst(Consumer<T> action) {
