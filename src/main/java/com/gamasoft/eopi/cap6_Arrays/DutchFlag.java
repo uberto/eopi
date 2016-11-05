@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap6_Arrays;
 
 import java.util.Arrays;
 

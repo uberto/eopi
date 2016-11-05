@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap6_Arrays;
 
 import junit.framework.Assert;
 import org.junit.Test;
@@ -8,6 +8,7 @@ import org.junit.Test;
  */
 public class ComputeMaxProfit {
 
+    //6.6
     @Test
     public void maxProfit() throws Exception {
 

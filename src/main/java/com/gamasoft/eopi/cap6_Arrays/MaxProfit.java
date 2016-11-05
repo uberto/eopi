@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap6_Arrays;
 
 /**
  * Created by uberto on 05/11/16.

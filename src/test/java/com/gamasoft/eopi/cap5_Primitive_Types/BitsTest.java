@@ -1,9 +1,7 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap5_Primitive_Types;
 
 import junit.framework.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by uberto on 31/10/16.

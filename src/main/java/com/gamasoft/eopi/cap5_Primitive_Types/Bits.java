@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap5_Primitive_Types;
 
 import java.util.ArrayList;
 import java.util.Collections;

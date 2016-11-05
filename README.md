@@ -5,10 +5,9 @@ http://elementsofprogramminginterviews.com/
 
 DONE
 5.1 5.7
-6.1
+6.1 6.6 6.11 6.17
 
 TODO
-6.6 6.11 6.17
 7.1 7.2 7.4
 8.1 8.2 8.3
 9.1 9.7
