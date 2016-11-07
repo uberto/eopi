@@ -19,7 +19,7 @@ public class ReplaceAndRemove {
         for (int i = count - 1; i >= 0; i--){
             char c = array[i];
 
-            System.out.println("c " + c);
+            //System.out.println("c " + c);
             if (c == 'a'){
                 array[wp--] = 'd';
                 array[wp--] = 'd';
