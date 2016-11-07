@@ -2,8 +2,6 @@
 http://elementsofprogramminginterviews.com/
 
 
-
-DONE
 5.1 5.7
 6.1 6.6 6.11 6.17
 7.1 7.2 7.4
