@@ -1,5 +1,6 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap8_LinkedLists;
 
+import com.gamasoft.eopi.cap8_LinkedLists.SingleLinkedList;
 import junit.framework.Assert;
 import org.junit.Test;
 

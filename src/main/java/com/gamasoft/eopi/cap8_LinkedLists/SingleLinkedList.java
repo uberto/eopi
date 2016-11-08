@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap8_LinkedLists;
 
 /**
  * Created by uberto on 01/11/16.

@@ -1,4 +1,4 @@
-package com.gamasoft.eopi.cap6_Arrays;
+package com.gamasoft.eopi.cap9_Stacks;
 
 import junit.framework.Assert;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class CircularQueueTest {
 
-
+//9.8
     @Test
     public void writeAndRead() throws Exception {
 

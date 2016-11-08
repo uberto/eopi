@@ -6,10 +6,10 @@ http://elementsofprogramminginterviews.com/
 6.1 6.6 6.11 6.17
 7.1 7.2 7.4
 8.1 8.2 8.3
+9.1 9.8
 
 
 TODO
-9.1 9.7
 10.1 10.4
 11.1 11.4
 12.1 12.4 12.8
