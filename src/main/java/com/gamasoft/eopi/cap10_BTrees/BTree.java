@@ -7,6 +7,7 @@ public class BTree<T> {
     public final T value;
     public final BTree<T> left;
     public final BTree<T> right;
+    public BTree<T> parent;
 
     public BTree(T value, BTree<T> left, BTree<T> right) {
         this.value = value;
@@ -19,6 +20,11 @@ public class BTree<T> {
     }
 
     public static BTree<Integer> intNode(int value, BTree<Integer> left, BTree<Integer> right) {
-        return new BTree<>(value, left, right);
+        BTree<Integer> bTree = new BTree<>(value, left, right);
+        if (right != null)
+            right.parent = bTree;
+        if (left != null)
+            left.parent = bTree;
+        return bTree;
     }
 }
