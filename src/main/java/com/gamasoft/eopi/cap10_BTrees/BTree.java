@@ -5,8 +5,8 @@ package com.gamasoft.eopi.cap10_BTrees;
  */
 public class BTree<T> {
     public final T value;
-    public final BTree<T> left;
-    public final BTree<T> right;
+    public BTree<T> left;
+    public BTree<T> right;
     public BTree<T> parent;
 
     public BTree(T value, BTree<T> left, BTree<T> right) {
