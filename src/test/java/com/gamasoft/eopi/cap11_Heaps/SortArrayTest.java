@@ -21,6 +21,8 @@ public class SortArrayTest {
 
         heap.addAll(a);
 
+        Assert.assertEquals(5, heap.peekMax().intValue());
+
         Assert.assertEquals(5, heap.pop().intValue());
         Assert.assertEquals(4, heap.pop().intValue());
         Assert.assertEquals(3, heap.pop().intValue());
@@ -39,6 +41,7 @@ public class SortArrayTest {
 
         heap.addAll(a);
 
+        Assert.assertEquals(5, heap.peekMax().intValue());
         Assert.assertEquals(5, heap.pop().intValue());
         Assert.assertEquals(4, heap.pop().intValue());
         Assert.assertEquals(3, heap.pop().intValue());
@@ -57,6 +60,7 @@ public class SortArrayTest {
 
         heap.addAll(a);
 
+        Assert.assertEquals(10, heap.peekMax().intValue());
         Assert.assertEquals(10, heap.pop().intValue());
         Assert.assertEquals(9, heap.pop().intValue());
         Assert.assertEquals(8, heap.pop().intValue());

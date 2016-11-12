@@ -111,6 +111,13 @@ public class MaxHeap<T extends Comparable> {
 
         return res;
     }
+
+    public T peekMax() {
+        if (head != null)
+            return head.value;
+        else
+            return null;
+    }
 }
 
 
