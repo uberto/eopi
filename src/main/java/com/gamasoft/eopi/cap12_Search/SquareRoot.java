@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap12_Search;
 
 /**
  * Created by uberto on 30/10/16.
