@@ -11,6 +11,7 @@ import com.gamasoft.eopi.cap10_BTrees.BTree;
  */
 public class MaxHeap<T extends Comparable> {
 
+    public int size  = 0;
     private BTree<T> head = null;
 
     /*
@@ -36,18 +37,23 @@ public class MaxHeap<T extends Comparable> {
     public void addAll(T[] array) {
 
         for (T e: array){
-            BTree<T> newNode = new BTree<>(e, null, null);
-            if (head == null)
-                head = new BTree<>(e, null, null);
-            else if (bigger(newNode, head)){
-                newNode.left = head;
-                newNode.right = head.left;
-                head.left = head.right;
-                head.right = null;
-                head = newNode;
-            } else
-                add(head, newNode);
+            add(e);
         }
+    }
+
+    public void add(T e) {
+        size++;
+        BTree<T> newNode = new BTree<>(e, null, null);
+        if (head == null)
+            head = new BTree<>(e, null, null);
+        else if (bigger(newNode, head)){
+            newNode.left = head;
+            newNode.right = head.left;
+            head.left = head.right;
+            head.right = null;
+            head = newNode;
+        } else
+            add(head, newNode);
     }
 
     private void add(BTree<T> n, BTree<T> newNode) {
@@ -85,6 +91,7 @@ public class MaxHeap<T extends Comparable> {
     }
 
     public T pop() {
+        size--;
         BTree<T> res = head;
         head = popFrom(head);
         return res.value;
@@ -118,6 +125,7 @@ public class MaxHeap<T extends Comparable> {
         else
             return null;
     }
+
 }
 
 

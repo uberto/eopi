@@ -14,9 +14,17 @@ public class DutchFlagTest {
     @Test
     public void dutchFlag() throws Exception {
 
-        Assert.assertEquals("[1, 2, 3, 5, 3]", Arrays.asList(DutchFlag.sort(new Integer[]{1, 3, 2, 5, 3}, 2)).toString());
-        Assert.assertEquals("[1, 2, 3, 4, 5]", Arrays.asList(DutchFlag.sort(new Integer[]{5,1,4,2,3}, 4)).toString());
-        Assert.assertEquals("[1, 1, 5, 5, 6, 6]", Arrays.asList(DutchFlag.sort(new Integer[]{6,1,5,5,6,1}, 3)).toString());
+        Integer[] array1 = {1, 3, 2, 5, 3};
+        DutchFlag.sort(array1, 2);
+        Assert.assertEquals("[1, 2, 3, 5, 3]", Arrays.asList(array1).toString());
+
+        Integer[] array2 = {5, 1, 4, 2, 3};
+        DutchFlag.sort(array2, 4);
+        Assert.assertEquals("[1, 2, 3, 4, 5]", Arrays.asList(array2).toString());
+
+        Integer[] array3 = {6, 1, 5, 5, 6, 1};
+        DutchFlag.sort(array3, 3);
+        Assert.assertEquals("[1, 1, 5, 5, 6, 6]", Arrays.asList(array3).toString());
 
     }
 }

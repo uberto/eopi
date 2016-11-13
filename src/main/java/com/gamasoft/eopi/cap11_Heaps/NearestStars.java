@@ -21,7 +21,14 @@ public class NearestStars {
         }
 
         MaxHeap<Double> heap = new MaxHeap<>();
-        heap.addAll(inverted.keySet().toArray(new Double[stars.size()]));
+
+        for(Double d: inverted.keySet()){
+            if (heap.size < max)
+                heap.add(d);
+            else if (heap.peekMax() < d)
+                heap.add(d);
+        }
+
 
         List<String> res = new ArrayList<>();
         for (int i = 0; i < max; i++) {
