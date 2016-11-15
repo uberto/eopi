@@ -6,6 +6,8 @@ import org.junit.Test;
 /**
  * Created by uberto on 14/11/16.
  */
+
+// 13.2
 public class AnonymousLetterTest {
 
     @Test

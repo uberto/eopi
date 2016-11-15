@@ -6,6 +6,8 @@ import java.util.Map;
 /**
  * Created by uberto on 14/11/16.
  */
+
+//13.2
 public class AnonymousLetter {
     public static boolean canWrite(String magazine, String letter) {
 
