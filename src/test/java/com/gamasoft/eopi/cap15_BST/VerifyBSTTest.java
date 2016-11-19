@@ -11,13 +11,19 @@ import org.junit.Test;
 //15.1
 public class VerifyBSTTest {
 
-    BTree<Integer> smallBST = BTree.intNode(5, BTree.intNode(3, BTree.intNode(2), BTree.intNode(4)), BTree.intNode(7, BTree.intNode(6), BTree.intNode(8)));
+    static BTree<Integer> smallBST = BTree.intNode(5, BTree.intNode(3, BTree.intNode(2), BTree.intNode(4)), BTree.intNode(7, BTree.intNode(6), BTree.intNode(8)));
 
-    BTree<Integer> smallWrongBST = BTree.intNode(5, BTree.intNode(3, BTree.intNode(2), BTree.intNode(6)), BTree.intNode(7, BTree.intNode(6), BTree.intNode(8)));
+    static BTree<Integer> smallWrongBST = BTree.intNode(5, BTree.intNode(3, BTree.intNode(2), BTree.intNode(6)), BTree.intNode(7, BTree.intNode(6), BTree.intNode(8)));
 
     @Test
     public void verifyNodeOrder() {
 
         Assert.assertTrue(VerifyBST.verify(smallBST));
+    }
+
+    @Test
+    public void verifyFalseNodeOrder() {
+
+        Assert.assertFalse(VerifyBST.verify(smallWrongBST));
     }
 }
