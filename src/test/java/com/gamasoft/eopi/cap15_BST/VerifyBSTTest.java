@@ -1,6 +1,5 @@
 package com.gamasoft.eopi.cap15_BST;
 
-import com.gamasoft.eopi.cap10_BTrees.BTree;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -11,19 +10,15 @@ import org.junit.Test;
 //15.1
 public class VerifyBSTTest {
 
-    static BTree<Integer> smallBST = BTree.intNode(5, BTree.intNode(3, BTree.intNode(2), BTree.intNode(4)), BTree.intNode(7, BTree.intNode(6), BTree.intNode(8)));
-
-    static BTree<Integer> smallWrongBST = BTree.intNode(5, BTree.intNode(3, BTree.intNode(2), BTree.intNode(6)), BTree.intNode(7, BTree.intNode(6), BTree.intNode(8)));
-
     @Test
     public void verifyNodeOrder() {
 
-        Assert.assertTrue(VerifyBST.verify(smallBST));
+        Assert.assertTrue(VerifyBST.verify(Samples.smallBST));
     }
 
     @Test
     public void verifyFalseNodeOrder() {
 
-        Assert.assertFalse(VerifyBST.verify(smallWrongBST));
+        Assert.assertFalse(VerifyBST.verify(Samples.smallWrongBST));
     }
 }
