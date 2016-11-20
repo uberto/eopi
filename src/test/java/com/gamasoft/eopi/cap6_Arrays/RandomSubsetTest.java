@@ -15,10 +15,10 @@ public class RandomSubsetTest {
     @Test
     public void randomSubset() throws Exception {
 
-        String[] ss1 = new String[]{"a","b","c","d","e","f","g","h"};
-        String[] ss2 = new String[]{"a","b","c","d","e","f","g","h"};
-        String[] ss3 = new String[]{"a","b","c","d","e","f","g","h"};
-        String[] ss4 = new String[]{"a","b","c","d","e","f","g","h"};
+        String[] ss1 = new String[]{"a","b","c","d","e","f","g","h","i"};
+        String[] ss2 = new String[]{"a","b","c","d","e","f","g","h","i"};
+        String[] ss3 = new String[]{"a","b","c","d","e","f","g","h","i"};
+        String[] ss4 = new String[]{"a","b","c","d","e","f","g","h","i"};
 
         RandomSubset.extract(ss1, 3);
         RandomSubset.extract(ss2, 3);
