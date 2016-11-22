@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap17_DynamicProgramming;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

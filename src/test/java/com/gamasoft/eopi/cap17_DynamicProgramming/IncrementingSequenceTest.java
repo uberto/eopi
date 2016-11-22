@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap17_DynamicProgramming;
 
 import junit.framework.Assert;
 import org.junit.Test;
@@ -6,8 +6,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by uberto on 30/10/16.

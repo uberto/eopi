@@ -8,6 +8,9 @@ import java.util.List;
 /**
  * Created by uberto on 21/11/16.
  */
+
+//16.2
+
 public class QueensTest {
 
     @Test

@@ -1,6 +1,5 @@
 package com.gamasoft.eopi.cap15_BST;
 
-import com.gamasoft.eopi.IncrementingSequence;
 import com.gamasoft.eopi.cap10_BTrees.BTree;
 
 import java.util.ArrayList;

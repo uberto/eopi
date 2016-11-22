@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap17_DynamicProgramming;
 
 /**
  * Created by uberto on 20/11/16.

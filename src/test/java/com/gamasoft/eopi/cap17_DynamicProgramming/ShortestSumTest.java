@@ -1,4 +1,4 @@
-package com.gamasoft.eopi;
+package com.gamasoft.eopi.cap17_DynamicProgramming;
 
 import org.junit.Assert;
 import org.junit.Test;
