@@ -8,30 +8,37 @@ import java.util.Map;
  */
 public class FootballScore{
 
-    //2 3 7
+    //single score can be 2 3 7, count combination, regardless of the order
+
+    /*
+     5=1 (2+3)
+     6=2 (3+3)(2+2+2)
+     7=2 (7)(3+2+2)
+     8=2 (3+3+2)(2+2+2+2)
+     9=3 (7+2)(3+3+3)(3+2+2+2)
+     10=3 (7+3)(3+3+2+2)(2+2+2+2+2)
+      */
+
+
     public static int scoreCombinations(int score) {
 
         Map<Integer, Integer> combinationsByScore = new HashMap<>();
-        combinationsByScore.put(2, 1);
-        combinationsByScore.put(3, 1);
-        combinationsByScore.put(7, 1);
-        for (int i = 0; i <= score; i++) {
-            int tot = combinationSingleScore(combinationsByScore, i, 0);
-            tot += combinationSingleScore(combinationsByScore, i, 2);
-            tot += combinationSingleScore(combinationsByScore, i, 3);
-            tot += combinationSingleScore(combinationsByScore, i, 7);
 
-            combinationsByScore.put(i, tot);
-        }
+        putCombinationsInMap(combinationsByScore, score, 2);
+        putCombinationsInMap(combinationsByScore, score, 3);
+        putCombinationsInMap(combinationsByScore, score, 7);
 
-        return combinationsByScore.get(score);
+        return combinationsByScore.getOrDefault(score, 0);
     }
 
-        private static int combinationSingleScore(Map<Integer, Integer> combinationsByScore, int sum, int singleScore) {
-            int tot = 0;
-            if (combinationsByScore.containsKey(sum - singleScore) ) {
-                tot = combinationsByScore.get(sum - singleScore);
-            }
-            return tot;
+    private static void putCombinationsInMap(Map<Integer, Integer> combinationsByScore, int score, int singleScore) {
+        addToMap(combinationsByScore, singleScore, 1);
+        for (int i =singleScore; i<= score; i++){
+            addToMap(combinationsByScore, i, combinationsByScore.getOrDefault(i - singleScore, 0));
         }
+    }
+
+    private static void addToMap(Map<Integer, Integer> combinationsByScore, int index, int value) {
+        combinationsByScore.put(index, combinationsByScore.getOrDefault(index, 0) + value);
+    }
 }
