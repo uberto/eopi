@@ -12,10 +12,17 @@ public class LevenshteinDistance {
     abcd -> xyzw == 1 + min {  abc -> xyz, abcd -> xyz, abc -> xyzw)
      */
 
-    private static Map<String, Integer> dists = new HashMap<>();
-
 
     public static int measure(String from, String to) {
+        Map<String, Integer> dists = new HashMap<>();
+        int res = measure(dists, from, to);
+
+        System.out.println("size " + dists.size() + " axb:" + from.length()*to.length());
+
+        return res;
+    }
+
+    private static int measure(Map<String, Integer> dists, String from, String to) {
 
         if (to.isEmpty())
             return from.length();
@@ -23,21 +30,18 @@ public class LevenshteinDistance {
             return to.length();
 
         if (last(from) == last(to))
-            return measure(prefix(from), prefix(to));
+            return measure(dists, prefix(from), prefix(to));
 
-        if (from.equals(to))
-            return 0;
         String key = from + ">" + to;
 
         if (dists.containsKey(key))
             return dists.get(key);
 
-        int v1 = measure(prefix(from), prefix(to));
-        int v2 = measure(from, prefix(to));
-        int v3 = measure(prefix(from), to);
+        int change = measure(dists, prefix(from), prefix(to));
+        int remove = measure(dists, from, prefix(to));
+        int add = measure(dists, prefix(from), to);
 
-
-        int res = 1 + Math.min(v1, Math.min(v2, v3));
+        int res = 1 + Math.min(change, Math.min(remove, add));
 
         dists.put(key, res);
         return res;
