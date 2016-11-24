@@ -52,10 +52,21 @@ public class LevenshteinDistanceTest {
 
 
     @Test
-    public void twelveSteps() throws Exception {
+    public void veryLong() throws Exception {
 
-        Assert.assertEquals(12, LevenshteinDistance.measure(
-                "distancestring", "measuresimilar"));
+        Assert.assertEquals(135, LevenshteinDistance.measure(
+                "In information theory and computer science, the Levenshtein distance is a string metric for measuring the difference between two sequences.",
+                "Informally, the Levenshtein distance between two words is the minimum number of single-character edits (i.e. insertions, deletions or substitutions) required to change one word into the other."));
+
+    }
+
+
+    @Test
+    public void verySimilar() throws Exception {
+
+        Assert.assertEquals(53, LevenshteinDistance.measure(
+                "In information theory and computer science, the Levenshtein distance is a string metric for measuring the difference between two sequences. Informally, the Levenshtein distance between two words is the minimum number of single-character edits (i.e. insertions, deletions or substitutions) required to change one word into the other.",
+                "Ininformaiton tehoury and compiuter scence, the Levenstan distanse is a strign mertic for mezurin the differencies betwheen too secuenses. Informally, the Lveensthtein ditsacne between tu woursd is the minimum nanber of sainglecharacter edits (i.e. inserzions, delesions or sustitutions) requiared to cahnge uan word intu the ohter."));
 
     }
 }
