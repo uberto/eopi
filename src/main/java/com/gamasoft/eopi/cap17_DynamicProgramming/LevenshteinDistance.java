@@ -32,7 +32,7 @@ public class LevenshteinDistance {
         if (last(from) == last(to))
             return measure(dists, prefix(from), prefix(to));
 
-        String key = from + ">" + to;
+        String key = from.length() + ">" + to.length();
 
         if (dists.containsKey(key))
             return dists.get(key);
