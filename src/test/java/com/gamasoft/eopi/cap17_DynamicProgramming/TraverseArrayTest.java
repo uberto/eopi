@@ -6,6 +6,8 @@ import org.junit.Test;
 /**
  * Created by uberto on 25/11/16.
  */
+
+//17.3
 public class TraverseArrayTest {
 
     @Test
