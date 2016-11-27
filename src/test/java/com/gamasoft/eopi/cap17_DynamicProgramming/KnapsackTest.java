@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  * Created by uberto on 27/11/16.
  */
+//17.6
 public class KnapsackTest {
 
     @Test
