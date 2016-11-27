@@ -34,22 +34,22 @@ public class PatternInTheGridTest {
 
 
         Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(10,6,7,3)));
-        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(15,11,10,6,5,9)));
+        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(15, 11, 10, 6, 5, 9)));
         Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(11,7,11)));
-        Assert.assertFalse(PatternInTheGrid.exists(grid, Arrays.asList(12,11,1)));
+        Assert.assertFalse(PatternInTheGrid.exists(grid, Arrays.asList(12, 11, 1)));
 
     }
 
     @Test
     public void repeatedGrid() throws Exception {
 
-        Integer[][] grid = new Integer[][]{{11,12,13,14},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        Integer[][] grid = new Integer[][]{{0,0,1,0},{0,3,2,0},{0,2,0,0},{0,1,0,0}};
 
 
-        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(14,8)));
-        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(12,16,15,14,10,6,12,13)));
-        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(14,13,14)));
-        Assert.assertFalse(PatternInTheGrid.exists(grid, Arrays.asList(12,5)));
+        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(1,2,3,2,1)));
+        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(0,0,0,0,0,0,0,1)));
+        Assert.assertTrue(PatternInTheGrid.exists(grid, Arrays.asList(0,0,0,0,0,0,0,2)));
+        Assert.assertFalse(PatternInTheGrid.exists(grid, Arrays.asList(0,0,0,0,0,0,0,4)));
 
     }
 }
