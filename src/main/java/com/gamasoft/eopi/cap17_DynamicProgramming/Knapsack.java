@@ -1,6 +1,8 @@
 package com.gamasoft.eopi.cap17_DynamicProgramming;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Created by uberto on 27/11/16.
@@ -9,15 +11,17 @@ public class Knapsack {
     public static int select(Set<Watch> shop, int maxWeight) {
         Set<Watch> choice = new HashSet<>(shop.size());
 
-        Map<String, Integer> memo = new HashMap<>();
+        KnapMemo memo = new KnapMemo();
         return select(memo, shop, maxWeight, choice);
     }
 
-    private static int select(Map<String, Integer> memo, Set<Watch> shop, int maxWeight, Set<Watch> choice) {
+    private static int select(KnapMemo memo, Set<Watch> shop, int maxWeight, Set<Watch> choice) {
+        String key = choice.toString();
 
-        String key = maxWeight + "->" + choice.toString();
-        if (memo.containsKey(key))
-            return memo.get(key);
+        int best = memo.best(key, maxWeight);
+        if (best > -1)
+            return best;
+
 
         int maxVal = choice.stream().map(w -> w.price).reduce(Integer::sum).orElse(0);
 
@@ -31,7 +35,7 @@ public class Knapsack {
             }
         }
 
-        memo.put(key, maxVal);
+        memo.storeBest(key, maxWeight, maxVal);
         return maxVal;
     }
 
@@ -55,6 +59,34 @@ public class Knapsack {
             return "W{"+ weight +
                     "," + price +
                     '}';
+        }
+    }
+
+    private static class KnapMemo extends HashMap<String, SortedMap<Integer, Integer>>{
+        public int best(String key, int maxWeight) {
+            if (!containsKey(key))
+                return -1;
+
+
+            SortedMap<Integer, Integer> solutions = get(key);
+
+            if (solutions.containsKey(maxWeight))
+                return solutions.get(maxWeight);
+
+            SortedMap<Integer, Integer> hm = solutions.headMap(maxWeight);
+            if (hm.isEmpty())
+                return -1;
+            return solutions.get(hm.lastKey());
+
+        }
+
+        public void storeBest(String key, int maxWeight, int val) {
+            SortedMap<Integer, Integer> solutions = getOrDefault(key, new TreeMap<>());
+
+            solutions.entrySet().removeIf(entry -> entry.getKey() >= maxWeight && entry.getValue() <= val);
+
+            solutions.put(maxWeight, val);
+            put(key, solutions);
         }
     }
 }
