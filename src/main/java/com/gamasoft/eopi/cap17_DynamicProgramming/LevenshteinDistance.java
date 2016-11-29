@@ -17,7 +17,7 @@ public class LevenshteinDistance {
         Map<String, Integer> dists = new HashMap<>();
         int res = measure(dists, from, to);
 
-        System.out.println("size " + dists.size() + " axb:" + from.length()*to.length());
+//        System.out.println("size " + dists.size() + " axb:" + from.length()*to.length());
 
         return res;
     }

@@ -31,4 +31,59 @@ public class PrettyPrintingTest {
         Assert.assertEquals(9, PrettyPrinting.messiness(text2, 8));
 
     }
+
+    @Test
+    public void tinyPrettyPringing() throws Exception {
+        List<String> words = Arrays.asList("a", "b");
+
+        List<String> lines = PrettyPrinting.justify(words, 3);
+        Assert.assertEquals(1, lines.size());
+        Assert.assertEquals(0, PrettyPrinting.messiness(lines, 3));
+
+
+    }
+
+
+    @Test
+    public void smallPrettyPringing() throws Exception {
+        List<String> words = Arrays.asList("a", "b", "c", "d");
+
+        List<String> lines = PrettyPrinting.justify(words, 3);
+        Assert.assertEquals(2, lines.size());
+        Assert.assertEquals(0, PrettyPrinting.messiness(lines, 3));
+
+
+        List<String> lines5 = PrettyPrinting.justify(words, 5);
+        Assert.assertEquals(2, lines5.size());
+        Assert.assertEquals(8, PrettyPrinting.messiness(lines5, 5));
+
+    }
+
+    @Test
+    public void longPrettyPrinting() throws Exception {
+        List<String> words = Arrays.asList("to", "be", "or", "not", "to", "be", "this", "is", "the", "question");
+
+        List<String> lines8 = PrettyPrinting.justify(words, 8);
+
+        Assert.assertEquals(5, lines8.size());
+        Assert.assertEquals(9, PrettyPrinting.messiness(lines8, 8));
+
+        List<String> lines9 = PrettyPrinting.justify(words, 9);
+        Assert.assertEquals(5, lines9.size());
+        Assert.assertEquals(24, PrettyPrinting.messiness(lines9, 9));
+
+        List<String> lines10 = PrettyPrinting.justify(words, 10);
+        Assert.assertEquals(5, lines10.size());
+        Assert.assertEquals(49, PrettyPrinting.messiness(lines10, 10));
+
+
+        List<String> lines12 = PrettyPrinting.justify(words, 12);
+        Assert.assertEquals(4, lines12.size());
+        Assert.assertEquals(42, PrettyPrinting.messiness(lines12, 12));
+
+        List<String> lines13 = PrettyPrinting.justify(words, 13);
+        Assert.assertEquals(3, lines13.size());
+        Assert.assertEquals(2, PrettyPrinting.messiness(lines13, 13));
+    }
+
 }

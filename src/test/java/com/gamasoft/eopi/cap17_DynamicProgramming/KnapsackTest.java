@@ -51,8 +51,10 @@ public class KnapsackTest {
         Assert.assertEquals(0, Knapsack.select(shop, 5));
         Assert.assertEquals(40, Knapsack.select(shop, 10));
 
-        long start = System.currentTimeMillis();
         Assert.assertEquals(695, Knapsack.select(shop, 130));
+
+        long start = System.currentTimeMillis();
+        Assert.assertEquals(1919, Knapsack.select(shop, 500));
 
         System.out.println("klapsack " + (System.currentTimeMillis() - start));
     }
