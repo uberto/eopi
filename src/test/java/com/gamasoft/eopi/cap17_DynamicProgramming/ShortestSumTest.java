@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by uberto on 20/11/16.
  */
-//17.
+//
 public class ShortestSumTest {
 
 

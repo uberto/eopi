@@ -18,7 +18,6 @@ http://elementsofprogramminginterviews.com/
 18.1
 
 TODO
- 17.9
 18.4 18.6
 19.1 19.7
 20.3 20.6
