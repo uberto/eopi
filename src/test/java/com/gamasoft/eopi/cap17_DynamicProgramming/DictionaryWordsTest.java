@@ -41,7 +41,7 @@ public class DictionaryWordsTest {
     @Test
     public void multiSol() throws Exception {
 
-        List<String> dict = Arrays.asList("not", "so", "fast", "ast", "of", "nos", "oso");
+        List<String> dict = Arrays.asList("no", "so", "fast", "ast", "of", "nos", "oso");
         Set<String> res = DictionaryWords.split(dict, "nosofast");
 
         Assert.assertEquals(6, res.size());

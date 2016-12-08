@@ -10,6 +10,31 @@ import java.util.Set;
  */
 public class DictionaryWords {
     public static Set<String> split(List<String> dict, String domain) {
-        return new HashSet<>();
+
+        Set<String> wordSet = new HashSet<>();
+
+        return fill(wordSet, dict, domain);
+
+    }
+
+    private static Set<String> fill(Set<String> wordSet, List<String> dict, String domain) {
+
+        for(String w: dict){
+            if (domain.startsWith(w)){
+                String leftOver = domain.substring(w.length());
+                if (leftOver.isEmpty()) {
+                    Set<String> set = new HashSet<>();
+                    set.add(w);
+                    return set;
+                } else {
+                    Set<String> set = fill(wordSet, dict, leftOver);
+                    if (!set.isEmpty()){
+                        wordSet.addAll(set);
+                        wordSet.add(w);
+                    }
+                }
+            }
+        }
+        return wordSet;
     }
 }
