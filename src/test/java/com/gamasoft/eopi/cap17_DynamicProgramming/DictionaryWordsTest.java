@@ -41,10 +41,24 @@ public class DictionaryWordsTest {
     @Test
     public void multiSol() throws Exception {
 
-        List<String> dict = Arrays.asList("no", "so", "fast", "ast", "of", "nos", "oso");
-        Set<String> res = DictionaryWords.split(dict, "nosofast");
+        List<String> dict = Arrays.asList("not", "so", "fast", "ast", "of", "nots", "oso");
+        Set<String> res = DictionaryWords.split(dict, "notsofast");
 
         Assert.assertEquals(6, res.size());
         Assert.assertFalse(res.contains("oso"));
+    }
+
+
+
+    @Test
+    public void trickySol() throws Exception {
+
+        List<String> dict = Arrays.asList("not", "so", "fast", "n", "ots", "ofas", "of", "as");
+        Set<String> res = DictionaryWords.split(dict, "notsofast");
+
+        Assert.assertEquals(3, res.size());
+        Assert.assertTrue(res.contains("not"));
+        Assert.assertTrue(res.contains("so"));
+        Assert.assertTrue(res.contains("fast"));
     }
 }
