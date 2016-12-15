@@ -12,9 +12,18 @@ public class MazeTest {
     @Test
     public void tinyMaze() throws Exception {
 
-        char[][] maze = new char[][]{{'_','_','X'}, 
-                                     {'X','_','X'},
-                                     {'X','_','_'}};
+        char[][] maze = new char[][]{{'_','_'}};
+
+        Assert.assertEquals(2, Maze.findShortestExit(maze));
+
+    }
+
+    @Test
+    public void smallMaze() throws Exception {
+
+        char[][] maze = new char[][]{{'_','_','X'},
+                {'X','_','X'},
+                {'X','_','_'}};
 
         Assert.assertEquals(5, Maze.findShortestExit(maze));
 
