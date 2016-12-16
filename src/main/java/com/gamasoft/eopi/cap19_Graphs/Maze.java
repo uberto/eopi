@@ -11,50 +11,21 @@ public class Maze {
     public static int findShortestExit(char[][] maze) {
         //For a (n,m) maze: start is at 0,0, finish at n,m
 
-        MazeNode start = createMazeGraph(maze);
+        GraphNode start = createMazeGraph(maze);
 
-        return findExit(start, xyKey(maze[0].length - 1, maze.length - 1));
+        return GraphNode.navigateNodesTo(start, xyKey(maze[0].length - 1, maze.length - 1));
 
     }
 
-    private static int findExit(MazeNode start, String exit) {
-        if (start == null)
-            return -1;
 
-        Set<String> visited = new HashSet<>();
-        Deque<MazeNode> toVisit = new ArrayDeque<>();
-        Deque<MazeNode> nextToVisit = new ArrayDeque<>();
 
-        toVisit.addAll(start.children);
-        visited.add(start.name);
-
-        int level = 2; //if we find right away is still 2 steps
-        while (!toVisit.isEmpty()){
-            MazeNode n = toVisit.pop();
-            if (!visited.contains(n.name)) {
-                if (n.name.equals(exit))
-                    return level;
-                nextToVisit.addAll(n.children);
-                visited.add(n.name);
-            }
-
-            if (toVisit.isEmpty()){
-                level++;
-                toVisit.addAll(nextToVisit);
-                nextToVisit.clear();
-            }
-        }
-
-        return -1;
-    }
-
-    private static MazeNode createMazeGraph(char[][] maze) {
-        Map<String, MazeNode> nodes = new HashMap<>();
+    private static GraphNode createMazeGraph(char[][] maze) {
+        Map<String, GraphNode> nodes = new HashMap<>();
         for (int x = 0; x < maze[0].length; x++) {
             for (int y = 0; y < maze.length; y++) {
                 if (maze[y][x] == '_'){
-                    MazeNode n = new MazeNode(xyKey(x, y));
-                    nodes.put(n.name, n);
+                    GraphNode n = new GraphNode(xyKey(x, y));
+                    nodes.put(n.key, n);
                 }
             }
         }
@@ -64,20 +35,20 @@ public class Maze {
             int x = Integer.valueOf(xy[0]);
             int y = Integer.valueOf(xy[1]);
 
-            MazeNode n = nodes.get(c);
+            GraphNode n = nodes.get(c);
 
-            MazeNode left = nodes.get(xyKey(x-1, y));
+            GraphNode left = nodes.get(xyKey(x-1, y));
             if (left != null)
-                n.addChild(left);
-            MazeNode right = nodes.get(xyKey(x+1, y));
+                n.addLink(left);
+            GraphNode right = nodes.get(xyKey(x+1, y));
             if (right != null)
-                n.addChild(right);
-            MazeNode down = nodes.get(xyKey(x, y-1));
+                n.addLink(right);
+            GraphNode down = nodes.get(xyKey(x, y-1));
             if (down != null)
-                n.addChild(down);
-            MazeNode up = nodes.get(xyKey(x, y+1));
+                n.addLink(down);
+            GraphNode up = nodes.get(xyKey(x, y+1));
             if (up != null)
-                n.addChild(up);
+                n.addLink(up);
 
         }
 
@@ -88,17 +59,4 @@ public class Maze {
         return String.valueOf(x)+','+String.valueOf(y);
     }
 
-    private static class MazeNode {
-        private List<MazeNode> children = new ArrayList<>();
-        private String name;
-
-        public MazeNode(String name) {
-
-            this.name = name;
-        }
-
-        public void addChild(MazeNode mazeNode) {
-            children.add(mazeNode);
-        }
-    }
 }
