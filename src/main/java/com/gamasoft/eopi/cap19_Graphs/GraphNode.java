@@ -29,7 +29,7 @@ public class GraphNode {
         toVisit.addAll(start.links);
         visited.add(start.key);
 
-        int level = 2; //if we find right away is still 2 steps
+        int level = 1;
         while (!toVisit.isEmpty()){
             GraphNode n = toVisit.pop();
             if (!visited.contains(n.key)) {

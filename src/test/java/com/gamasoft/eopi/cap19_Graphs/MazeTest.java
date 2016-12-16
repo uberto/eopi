@@ -14,7 +14,7 @@ public class MazeTest {
 
         char[][] maze = new char[][]{{'_','_'}};
 
-        Assert.assertEquals(2, Maze.findShortestExit(maze));
+        Assert.assertEquals(1, Maze.findShortestExit(maze));
 
     }
 
@@ -25,7 +25,7 @@ public class MazeTest {
                 {'X','_','X'},
                 {'X','_','_'}};
 
-        Assert.assertEquals(5, Maze.findShortestExit(maze));
+        Assert.assertEquals(4, Maze.findShortestExit(maze));
 
     }
 
@@ -49,7 +49,7 @@ public class MazeTest {
                                      {'X','_','X','X'},
                                      {'_','_','_','_'}};
 
-        Assert.assertEquals(8, Maze.findShortestExit(maze));
+        Assert.assertEquals(7, Maze.findShortestExit(maze));
 
     }
 
@@ -65,7 +65,7 @@ public class MazeTest {
                  {'_','X','X','_','_','_','_'},
                  {'_','_','_','_','X','X','_'}};
 
-        Assert.assertEquals(21, Maze.findShortestExit(maze));
+        Assert.assertEquals(20, Maze.findShortestExit(maze));
 
     }
 
