@@ -42,15 +42,15 @@ public class WordChangesTest {
 
     @Test
     public void bigDict() throws Exception {
-        Assert.assertEquals(3, WordChanges.findChanges("tea", "three", bigDict));
-        Assert.assertEquals(3, WordChanges.findChanges("lyre", "tee", bigDict));
-        Assert.assertEquals(5, WordChanges.findChanges("lyre", "thus", bigDict));
-        Assert.assertEquals(3, WordChanges.findChanges("three", "she", bigDict));
-        Assert.assertEquals(5, WordChanges.findChanges("thus", "you", bigDict));
-        Assert.assertEquals(9, WordChanges.findChanges("me", "you", bigDict));
         Assert.assertEquals(2, WordChanges.findChanges("us", "our", bigDict));
         Assert.assertEquals(2, WordChanges.findChanges("he", "they", bigDict));
+        Assert.assertEquals(3, WordChanges.findChanges("tea", "three", bigDict));
+        Assert.assertEquals(3, WordChanges.findChanges("lyre", "tee", bigDict));
+        Assert.assertEquals(3, WordChanges.findChanges("three", "she", bigDict));
+        Assert.assertEquals(5, WordChanges.findChanges("lyre", "thus", bigDict));
+        Assert.assertEquals(5, WordChanges.findChanges("thus", "you", bigDict));
         Assert.assertEquals(6, WordChanges.findChanges("soy", "yurt", bigDict));
+        Assert.assertEquals(9, WordChanges.findChanges("me", "you", bigDict));
 
     }
 
