@@ -14,9 +14,8 @@ public class Palindrome {
         int l = x;
 
         while( l > 0){
-            int c = l % 10;
             r *= 10;
-            r += c;
+            r += l % 10;
             l /= 10;
         }
         return r;
