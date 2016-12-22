@@ -8,6 +8,7 @@ import java.util.Arrays;
 /**
  * Created by uberto on 22/12/16.
  */
+// 6.5
 public class RemoveDuplicatesTest {
     @Test
     public void noDuplicates() throws Exception {
