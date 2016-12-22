@@ -2,7 +2,7 @@
 http://elementsofprogramminginterviews.com/
 
 
-5.1 5.7 5.8 5.9
+5.1 5.7 5.8 5.9 5.11
 6.1 6.6 6.11 6.17
 7.1 7.2 7.4
 8.1 8.2 8.3
