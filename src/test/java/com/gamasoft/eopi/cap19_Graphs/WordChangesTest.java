@@ -15,11 +15,28 @@ public class WordChangesTest {
     private List<String> miniDict = Arrays.asList("tea", "tee", "the", "thee", "three");
     private List<String> bigDict = Arrays.asList("tea", "tee", "the", "thee", "three", "thu", "tye", "tyre", "tir", "try", "lyre", "sire", "she", "her", "he", "me", "my", "mum", "thus", "our", "ur", "us", "we", "pea", "lea", "jug", "gig", "gag", "jar", "they", "whey", "hey", "me", "you", "yurt", "hurt", "hart", "hast", "has", "your", "yur", "yus", "hus", "yo", "so", "soy");
 
+
+
+    @Test
+    public void checkSingleCharDiff() {
+
+        Assert.assertTrue(WordChanges.singleCharDiff("abc", "abcd"));
+        Assert.assertTrue(WordChanges.singleCharDiff("abc", "ab"));
+        Assert.assertTrue(WordChanges.singleCharDiff("abc", "abd"));
+        Assert.assertTrue(WordChanges.singleCharDiff("abc", "zbc"));
+        Assert.assertTrue(WordChanges.singleCharDiff("aaa", "aaaa"));
+        Assert.assertFalse(WordChanges.singleCharDiff("abc", "abc"));
+        Assert.assertFalse(WordChanges.singleCharDiff("ad", "abc"));
+        Assert.assertFalse(WordChanges.singleCharDiff("ade", "abc"));
+        Assert.assertFalse(WordChanges.singleCharDiff("abcde", "abc"));
+        Assert.assertFalse(WordChanges.singleCharDiff("aaaa", "aab"));
+
+    }
+
     @Test
     public void sameWord() throws Exception {
 
         Assert.assertEquals(0, WordChanges.findChanges("tea", "tea", miniDict));
-
     }
 
     @Test
