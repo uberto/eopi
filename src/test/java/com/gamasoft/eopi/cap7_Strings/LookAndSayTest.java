@@ -6,6 +6,7 @@ import org.junit.Test;
 /**
  * Created by uberto on 28/12/16.
  */
+//7.8
 public class LookAndSayTest {
 
     @Test
