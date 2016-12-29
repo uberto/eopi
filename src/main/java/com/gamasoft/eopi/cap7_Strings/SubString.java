@@ -25,7 +25,7 @@ public class SubString {
         for (int i = substring.length(); i < main.length(); i++){
             currHash -= getCharNum(main, i - substring.length()) * power;
             currHash = currHash * 10 + getCharNum(main, i);
-            if (currHash == soughtHash)
+            if (currHash == soughtHash && main.substring(i - substring.length() + 1, i +1).equals(substring))
                 return i - substring.length() + 1;
         }
 
