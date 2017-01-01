@@ -5,36 +5,31 @@ package com.gamasoft.eopi.cap8_LinkedLists;
  */
 public class SingleLinkedList<T> {
 
-    public static class Element<T>{
+    LinkedListNode<T> head;
 
-        Element<T> next;
-        T value;
-    }
-    Element<T> head;
-
-    Element<T> add(T value){
+    LinkedListNode<T> add(T value){
         if (head == null){
-            head = new Element<>();
+            head = new LinkedListNode<>();
             head.value = value;
             return head;
         }
-        Element<T> curr = findLast();
+        LinkedListNode<T> curr = findLast();
 
-        curr.next = new Element<>();
+        curr.next = new LinkedListNode<>();
         curr.next.value = value;
         return curr.next;
     }
 
-    private Element<T> findLast() {
-        Element<T> curr = head;
+    private LinkedListNode<T> findLast() {
+        LinkedListNode<T> curr = head;
         while (curr.next != null)
             curr = curr.next;
         return curr;
     }
 
-    public Element<T> findMiddle() {
-        Element<T> currSlow = head;
-        Element<T> currFast = head;
+    public LinkedListNode<T> findMiddle() {
+        LinkedListNode<T> currSlow = head;
+        LinkedListNode<T> currFast = head;
         while (currFast.next != null && currFast.next.next != null) {
             currSlow = currSlow.next;
             currFast = currFast.next.next;
