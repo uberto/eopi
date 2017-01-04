@@ -11,24 +11,40 @@ import java.util.List;
 public class FindLCA {
     public static <T> BTree<T> find(BTree<T> left, BTree<T> right) {
 
-        Deque<BTree<T>> pLeft= parents(left);
-        Deque<BTree<T>> pRight= parents(right);
+        int ld = findDepth(left);
+        int rd = findDepth(right);
 
-        BTree<T> res = null;
-        while(pLeft.peekLast() == pRight.peekLast()){
-            res = pLeft.removeLast();
-            pRight.removeLast();
+        BTree<T> currLeft = left;
+        BTree<T> currRight = right;
+
+        if (ld > rd){
+            currLeft = goUp(currLeft, ld - rd);
+        }else if (rd > ld){
+            currRight = goUp(currRight, rd - ld);
         }
 
-        return res;
+        while (currLeft != currRight){
+            currLeft = currLeft.parent;
+            currRight = currRight.parent;
+        }
+        return currLeft;
     }
 
-    private static <T> Deque<BTree<T>> parents(BTree<T> node) {
-        Deque<BTree<T>> res = new LinkedList<>();
-        while (node != null){
-            res.add(node);
+    private static <T> BTree<T> goUp(BTree<T> node, int count) {
+        for (int i = 0; i < count; i++) {
+            node = node.parent;
+        }
+        return node;
+    }
+
+    private static int findDepth(BTree node) {
+        int res = 0;
+        while (node.parent != null){
+            res++;
             node = node.parent;
         }
         return res;
     }
+
+
 }
