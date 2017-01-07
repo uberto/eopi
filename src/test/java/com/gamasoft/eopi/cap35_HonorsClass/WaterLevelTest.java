@@ -1,4 +1,4 @@
-package com.gamasoft.eopi.cap17_DynamicProgramming;
+package com.gamasoft.eopi.cap35_HonorsClass;
 
 import junit.framework.Assert;
 import org.junit.Test;
@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Created by uberto on 07/01/17.
  */
+//25.35
 public class WaterLevelTest {
 
     @Test

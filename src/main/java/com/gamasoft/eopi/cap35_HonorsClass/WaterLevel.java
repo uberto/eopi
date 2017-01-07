@@ -1,4 +1,4 @@
-package com.gamasoft.eopi.cap17_DynamicProgramming;
+package com.gamasoft.eopi.cap35_HonorsClass;
 
 import java.util.Deque;
 import java.util.LinkedList;
