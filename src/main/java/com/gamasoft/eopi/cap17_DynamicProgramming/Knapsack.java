@@ -23,13 +23,13 @@ public class Knapsack {
             return best;
 
 
-        int maxVal = choice.stream().map(w -> w.price).reduce(Integer::sum).orElse(0);
+        int maxVal = choice.stream().map(w -> w.price()).reduce(Integer::sum).orElse(0);
 
         for(Watch w: shop){
-            if (!choice.contains(w) && w.weight <= maxWeight) {
+            if (!choice.contains(w) && w.weight() <= maxWeight) {
                 Set<Watch> nc = new HashSet<>(choice);
                 nc.add(w);
-                int val = select(memo, shop, maxWeight - w.weight, nc);
+                int val = select(memo, shop, maxWeight - w.weight(), nc);
                 if (val > maxVal)
                     maxVal = val;
             }
@@ -45,11 +45,19 @@ public class Knapsack {
         return set;
     }
 
-    public static class Watch {
+    interface Watch{
+
+        int weight();
+
+        int price();
+    }
+
+
+    __ByValue public static class WatchV implements Watch {
         public final int weight;
         public final int price;
 
-        public Watch(int weight, int price) {
+        public WatchV(int weight, int price) {
             this.weight = weight;
             this.price = price;
         }
@@ -60,13 +68,22 @@ public class Knapsack {
                     "," + price +
                     '}';
         }
+
+        @Override
+        public int weight() {
+            return weight;
+        }
+
+        @Override
+        public int price() {
+            return price;
+        }
     }
 
     private static class KnapMemo extends HashMap<String, SortedMap<Integer, Integer>>{
         public int best(String key, int maxWeight) {
             if (!containsKey(key))
                 return -1;
-
 
             SortedMap<Integer, Integer> solutions = get(key);
 
