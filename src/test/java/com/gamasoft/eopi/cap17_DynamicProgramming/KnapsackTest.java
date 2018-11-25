@@ -1,7 +1,6 @@
 package com.gamasoft.eopi.cap17_DynamicProgramming;
 
 import com.gamasoft.eopi.cap17_DynamicProgramming.Knapsack.Watch;
-import com.gamasoft.eopi.cap17_DynamicProgramming.Knapsack.WatchV;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +16,7 @@ public class KnapsackTest {
     @Test
     public void smallShop() throws Exception {
 
-        Set<Watch> shop = Knapsack.shop(new WatchV(1,1), new WatchV(3,2), new WatchV(1,3));
+        Set<Watch> shop = Knapsack.shop(newWatch(1,1), newWatch(3,2), newWatch(1,3));
 
         Assert.assertEquals(3, Knapsack.select(shop, 1));
         Assert.assertEquals(4, Knapsack.select(shop, 2));
@@ -77,6 +76,6 @@ public class KnapsackTest {
     }
 
     private Watch newWatch(int weight, int price) {
-        return new WatchV(weight, price);
+        return new Watch(weight, price);
     }
 }
